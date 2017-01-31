@@ -2,7 +2,8 @@
 
 Example app combining a React UI (from [create-react-app](https://github.com/facebookincubator/create-react-app)) with a custom Node/Express server.
 
-To simply deploy a React app, try [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack).
+To deploy only a front-end/UI React app use  
+▶️ [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack)
 
 
 ## Design Points
