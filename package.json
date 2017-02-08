@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node server",
-    "postinstall": "if [ \"$NODE_ENV\" = production ]; then cd react-ui/ && npm install --only=dev && npm install && npm run build; fi"
+    "heroku-postbuild": "cd react-ui/ && npm install --only=dev && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
