@@ -2,8 +2,10 @@
 
 A minimal example of using a Node backend (server for API, proxy, & routing) with a [React frontend](https://github.com/facebookincubator/create-react-app).
 
-To deploy a frontend-only React app, use the static-site optimized
+To deploy a frontend-only React app, use the static-site optimized  
 ▶️ [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack)
+
+⤵️ [Switching from create-react-app-buildpack](#switching-from-create-react-app-buildpack)?
 
 
 ## Design Points
@@ -43,6 +45,31 @@ This deployment will automatically:
 
 👓 More about [deploying to Heroku](https://devcenter.heroku.com/categories/deployment).
 
+
+## Switching from create-react-app-buildpack
+
+If an app was previously deployed with [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack), then a few steps are required to migrate the app to this architecture:
+
+1. Remove **create-react-app-buildpack** from the app; [heroku/nodejs buildpack](https://devcenter.heroku.com/articles/nodejs-support#activation) will be automatically activated
+  
+  ```bash
+  heroku buildpacks:clear
+  ```
+1. Move the root React app files (including dotfiles) into a `react-ui/` subdirectory
+
+  ```bash
+  mkdir react-ui
+  mv * .[!.]* react-ui/
+  ```
+1. Create a root [`package.json`](package.json) and [`server/`](server/) modeled after the code in this repo
+1. Commit and deploy ♻️
+  
+  ```bash
+  git add -A
+  git commit -m 'Migrate from create-react-app-buildpack to Node server'
+  git push heroku master
+  ```
+  
 
 ## Local Development
 
