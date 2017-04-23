@@ -52,25 +52,25 @@ If an app was previously deployed with [create-react-app-buildpack](https://gith
 
 1. Remove **create-react-app-buildpack** from the app; [heroku/nodejs buildpack](https://devcenter.heroku.com/articles/nodejs-support#activation) will be automatically activated
   
-  ```bash
-  heroku buildpacks:clear
-  ```
+    ```bash
+    heroku buildpacks:clear
+    ```
 1. Move the root React app files (including dotfiles) into a `react-ui/` subdirectory
 
-  ```bash
-  mkdir react-ui
-  git mv [!react-ui]* react-ui/
-  # You'll see "fatal: Not a git repository"; let's fix that error
-  mv react-ui/.git ./
-  ```
+    ```bash
+    mkdir react-ui
+    git mv [!react-ui]* react-ui/
+    # You'll see "fatal: Not a git repository"; let's fix that error
+    mv react-ui/.git ./
+    ```
 1. Create a root [`package.json`](package.json), [`server/`](server/), & [`.gitignore`](.gitignore) modeled after the code in this repo
 1. Commit and deploy ♻️
   
-  ```bash
-  git add -A
-  git commit -m 'Migrate from create-react-app-buildpack to Node server'
-  git push heroku master
-  ```
+    ```bash
+    git add -A
+    git commit -m 'Migrate from create-react-app-buildpack to Node server'
+    git push heroku master
+    ```
   
 
 ## Local Development
