@@ -7,6 +7,8 @@ To deploy a frontend-only React app, use the static-site optimized
 
 ⤵️ [Switching from create-react-app-buildpack](#switching-from-create-react-app-buildpack)?
 
+🚨 Alert for users of [npm 5’s new `package-lock.json`](https://github.com/mars/heroku-cra-node/pull/10)
+
 
 ## Design Points
 
