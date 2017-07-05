@@ -7,8 +7,6 @@ To deploy a frontend-only React app, use the static-site optimized
 
 ⤵️ [Switching from create-react-app-buildpack](#switching-from-create-react-app-buildpack)?
 
-🚨 Alert for users of [npm 5’s new `package-lock.json`](https://github.com/mars/heroku-cra-node/pull/10)
-
 
 ## Design Points
 
@@ -44,6 +42,8 @@ This deployment will automatically:
   * launch the web process with `npm start`
     * serves `../react-ui/build/` as static files
     * customize by adding API, proxy, or route handlers/redirectors
+
+⚠️ Using npm 5’s new `package-lock.json`? We resolved a compatibility issue. See [PR](https://github.com/mars/heroku-cra-node/pull/10) for more details.
 
 👓 More about [deploying to Heroku](https://devcenter.heroku.com/categories/deployment).
 
