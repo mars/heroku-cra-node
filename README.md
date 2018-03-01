@@ -66,6 +66,8 @@ If an app was previously deployed with [create-react-app-buildpack](https://gith
     # You'll see "fatal: Not a git repository"; let's fix that error
     mv react-ui/.git ./
     ```
+    **Note:** If this step does not work for whatever reason, you can manually move each file (excluding the .git directory) into the `react-ui/` folder.
+1. Edit the [`react-ui/package.json`](/react-ui/package.json) file to include a proxy to the local backend server
 1. Create a root [`package.json`](package.json), [`server/`](server/), & [`.gitignore`](.gitignore) modeled after the code in this repo
 1. Commit and deploy ♻️
   
