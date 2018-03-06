@@ -62,14 +62,14 @@ let express = require('express'),
 
 // mongoose instance connection url connection
 
-// mongoose.Promise = global.Promise;
-// mongoose.connect(process.env.MONGODB_URI);
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI);
 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 app.use(bodyParser.json());
-app.get('*', function (request, response) {
+app.get('/', function (request, response) {
     response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });
 
