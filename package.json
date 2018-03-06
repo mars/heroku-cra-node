@@ -6,7 +6,7 @@
     "node": "8.9.x"
   },
   "scripts": {
-    "start": "node server",
+    "start": "nodemon server",
     "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "cacheDirectories": [
@@ -14,7 +14,10 @@
     "react-ui/node_modules"
   ],
   "dependencies": {
-    "express": "^4.14.1"
+    "aws-sdk": "^2.205.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.14.1",
+    "mongoose": "^5.0.9"
   },
   "repository": {
     "type": "git",
