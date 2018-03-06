@@ -61,8 +61,9 @@ let express = require('express'),
 // });
 
 // mongoose instance connection url connection
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI);
+
+// mongoose.Promise = global.Promise;
+// mongoose.connect(process.env.MONGODB_URI);
 
 
 app.use(bodyParser.urlencoded({extended: true}));
