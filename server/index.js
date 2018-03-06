@@ -69,7 +69,9 @@ let express = require('express'),
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(bodyParser.json());
-
+app.get('*', function (request, response) {
+    response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
+});
 
 let routes = require('./routes/routes'); //importing route
 routes(app); //register the route
