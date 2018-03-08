@@ -1,15 +1,16 @@
 'use strict';
-module.exports = function(app) {
-    var todoList = require('../controllers/controller');
 
-    // todoList Routes
-    app.route('/tasks')
-        .get(todoList.list_all_tasks)
-        .post(todoList.create_a_task);
+module.exports = function (app) {
+    let channel_ctrl = require('../controllers/controller');
+    app.route('/channels')
+        .get(channel_ctrl.list_all_channels)
+        .post(channel_ctrl.create_a_channel);
 
+    app.route('/channels/:channelId')
+        .get(channel_ctrl.read_a_channel)
+        .put(channel_ctrl.update_a_channel)
+        .delete(channel_ctrl.delete_a_channel);
 
-    app.route('/tasks/:taskId')
-        .get(todoList.read_a_task)
-        .put(todoList.update_a_task)
-        .delete(todoList.delete_a_task);
+    app.route('/test')
+        .get(channel_ctrl.test)
 };

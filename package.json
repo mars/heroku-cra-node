@@ -17,7 +17,8 @@
     "aws-sdk": "^2.205.0",
     "body-parser": "^1.18.2",
     "express": "^4.14.1",
-    "mongoose": "^5.0.9"
+    "mongoose": "^5.0.9",
+    "tmi.js": "^1.2.1"
   },
   "repository": {
     "type": "git",

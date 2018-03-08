@@ -2,23 +2,21 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-
-let TaskSchema = new Schema({
+let ChannelSchema = new Schema({
     name: {
         type: String,
-        required: 'Kindly enter the name of the task'
+        required: 'enter channel name'
     },
     Created_date: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
-    status: {
-        type: [{
-            type: String,
-            enum: ['pending', 'ongoing', 'completed']
-        }],
-        default: ['pending']
-    }
+    total_messages: {
+        type: Number,
+        default: 0
+    },
+    jd_messages: [{user: String, message: String}]
+
 });
 
-module.exports = mongoose.model('Tasks', TaskSchema);
+module.exports = mongoose.model('Channels', ChannelSchema);
