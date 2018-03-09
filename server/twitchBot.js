@@ -42,18 +42,17 @@ class TwitchBot {
         const that = this;
         setInterval(() => {
             console.log('Synchronizing channels...');
-            this.channels.forEach(this.botCtrl.update_channel);
-            this.botCtrl.get_all_channels(function (_channels) {
+            that.channels.forEach(that.botCtrl.update_channel);
+            that.botCtrl.get_all_channels(function (_channels) {
                 _channels.forEach(function (channel) {
-                    if (!channels.find(x => x.name === channel.name)) {
-                        channels.push(channel);
-                        this.client.join(channel.name)
+                    if (!that.channels.find(x => x.name === channel.name)) {
+                        that.channels.push(channel);
+                        that.client.join(channel.name)
                     }
                 })
 
             });
-            console.log('Channels synchronized!')
-        }, 3 * 1000);
+        }, 10 * 1000);
         this.client.on('chat', function (channel, userState, message, self) {
             if (self) return;
             handleMessage(channel, userState, message);
