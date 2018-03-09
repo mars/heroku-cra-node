@@ -18,6 +18,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.14.1",
     "mongoose": "^5.0.9",
+    "socket.io": "^2.0.4",
     "tmi.js": "^1.2.1"
   },
   "repository": {

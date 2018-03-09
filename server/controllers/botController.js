@@ -1,5 +1,6 @@
 'use strict';
 let async = require('async');
+const Channell = require('../models/model');
 
 let mongoose = require('mongoose'),
     Channel = mongoose.model('Channels');

@@ -1,83 +1,56 @@
-// const express = require('express');
+const express = require('express');
+const socketIo = require('socket.io');
+const http = require('http');
+const bodyParser = require('body-parser');
 const path = require('path');
-// const cluster = require('cluster');
-// const numCPUs = require('os').cpus().length;
-// const PORT = process.env.PORT || 5000;
-//
-// // Multi-process to utilize all CPU cores.
-// if (cluster.isMaster) {
-//     console.error(`Node cluster master ${process.pid} is running`);
-//
-//     // Fork workers.
-//     for (let i = 0; i < numCPUs; i++) {
-//         cluster.fork();
-//     }
-//
-//     cluster.on('exit', (worker, code, signal) => {
-//         console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
-//         // console.log('Starting a new worker');
-//         // cluster.fork();
-//     });
-//
-// } else {
-//     const app = express();
-//     const mongoose = require('mongoose');
-//     const Task = require('./models/model');
-//     const bodyParser = require('body-parser');
-//
-//     mongoose.Promise = global.Promise;
-//     mongoose.connect('mongodb://localhost/nodeTest');
-//
-//     app.use(bodyParser.urlencoded({extended: true}));
-//     app.use(bodyParser.json());
-//
-//     // Priority serve any static files.
-//     app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
-//
-//     // Answer API requests.
-//     const routes = require('./routes/routes');
-//     routes(app);
-//
-//     // All remaining requests return the React app, so it can handle routing.
-//     app.get('*', function (request, response) {
-//         response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
-//     });
-//
-//     app.listen(PORT, function () {
-//         console.error(`Node cluster worker ${process.pid}: listening on port ${PORT}`);
-//     });
-// }
+const mongoose = require('mongoose');
+const Channel = require('./models/model');
+const bot = require('./twitchBot');
+const socketCtrl = require('./controllers/socketController');
+const PORT = process.env.PORT || 5000;
+const app = express();
 
-let express = require('express'),
-    app = express(),
-    port = process.env.PORT || 5000,
-    mongoose = require('mongoose'),
-    Task = require('./models/model'), //created model loading here
-    bodyParser = require('body-parser');
-
-// let aws = require('aws-sdk');
-// let s3 = new aws.S3({
-//     db_path: process.env.MONGODB_URI
-// });
-
-// mongoose instance connection url connection
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/nodeTest');
 
-
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 app.use(bodyParser.json());
-app.get('/', function (request, response) {
-    response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
-});
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
+// Answer API requests.
 let routes = require('./routes/routes'); //importing route
 routes(app); //register the route
 
+// All remaining requests return the React app, so it can handle routing.
+app.get('*', function (request, response) {
+    response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
+});
 
-app.listen(port);
+const server = http.createServer(app);
+const io = socketIo(server);
 
+let interval;
+io.on('connection', socket => {
+    console.log('New client connected');
+    if (interval) {
+        clearInterval(interval)
+    }
+    interval = setInterval(() => getDataAndEmit(socket), 1000);
+    socket.on('disconnect', () => {
+        console.log('Client disconnected')
+    })
+});
+const getDataAndEmit = async socket => {
+    try {
+        const channels = await socketCtrl.get_all_channels();
+        socket.emit('from_api', channels)
+    } catch (error) {
+        console.error(`Socket error: ${error.code}`)
+    }
 
-console.log('todo list RESTful API server started on: ' + port);
+};
+
+server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+bot.start();
