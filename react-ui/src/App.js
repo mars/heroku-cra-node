@@ -49,7 +49,7 @@ class App extends Component {
         super();
         this.state = {
             response: false,
-            endpoint: "https://react-node-test-.herokuapp.com"
+            endpoint: "https://jdpisarz.herokuapp.com"
         }
     }
 

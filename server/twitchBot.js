@@ -2,7 +2,6 @@ class TwitchBot {
     constructor() {
         this.tmi = require('tmi.js');
         this.botCtrl = require('./controllers/botController');
-        // const Channel = require('./models/model');
 
         this.config = {
             options: {
@@ -16,14 +15,12 @@ class TwitchBot {
                 username: 'jdpisarz',
                 password: 'oauth:yzpsu4vbeow7v8utyunmyydmxssrlw'
             },
-            channels: ['jdpisarz', 'nervarien', 'arquel', 'riot games', 'overpow', 'xayoo_']
+            channels: ['jdpisarz']
         };
 
         this.channels = [];
         this.client = new this.tmi.client(this.config);
         this.jdRegex = /^(jd|JD|jD|Jd)(\s|\n|\t|)|(\s(jd|JD|jD|Jd))+/g;
-        this.that = this;
-
     }
 
     start() {
