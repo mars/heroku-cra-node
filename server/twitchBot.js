@@ -61,7 +61,7 @@ class TwitchBot {
             let chan = that.channels.find(x => x.name === channelName);
             if (!chan) return;
             if (message.match(that.jdRegex))
-                chan.jd_messages.push({user: userState['display-name'], message: message});
+                chan.jd_messages.push({user: userState['display-name'], message: message, date: Date.now()});
             chan.total_messages += 1;
         }
 

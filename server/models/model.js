@@ -15,7 +15,7 @@ let ChannelSchema = new Schema({
         type: Number,
         default: 0
     },
-    jd_messages: [{user: String, message: String}]
+    jd_messages: [{user: String, message: String, date: Date}]
 
 });
 
