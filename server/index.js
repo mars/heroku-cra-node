@@ -26,7 +26,7 @@ if (cluster.isMaster) {
 
   // Answer API requests.
   app.get('/api', function (req, res) {
-    res.json({ "message": "Hello from the custom server!" });
+    res.json({ message: 'Hello from the custom server!' });
   });
 
   // All remaining requests return the React app, so it can handle routing.
