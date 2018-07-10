@@ -14,7 +14,7 @@
     "react-ui/node_modules"
   ],
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.16.3"
   },
   "repository": {
     "type": "git",
