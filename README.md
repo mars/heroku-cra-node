@@ -70,7 +70,7 @@ If an app was previously deployed with [create-react-app-buildpack](https://gith
     # If you see "fatal: Not a git repository", then fix that error
     mv react-ui/.git ./
     ```
-    ⚠️ *Some folks have reported problems with these commands. Sorry if they do not work for you, know that the point is to move **everything** in the repo into the `react-ui/` subdirectory. Except for `.git/` which should remain at the root level.* 
+    ⚠️ *Some folks have reported problems with these commands. Using the `bash` shell will probably allow them to work. Sorry if they do not work for you, know that the point is to move **everything** in the repo into the `react-ui/` subdirectory. Except for `.git/` which should remain at the root level.* 
 1. Create a root [`package.json`](package.json), [`server/`](server/), & [`.gitignore`](.gitignore) modeled after the code in this repo
 1. Commit and deploy ♻️
   
