@@ -1,5 +1,7 @@
 # create-react-app with a Node server on Heroku
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mars/heroku-cra-node.svg)](https://greenkeeper.io/)
+
 A minimal example of using a Node backend (server for API, proxy, & routing) with a [React frontend](https://github.com/facebookincubator/create-react-app).
 
 To deploy a frontend-only React app, use the static-site optimized  
