@@ -102,7 +102,7 @@ create-react-app itself supports [configuration with environment variables](http
 2. Set the bundle location for runtime config injection:
 
    ```bash
-   heroku config:set JS_RUNTIME_TARGET_BUNDLE=/app/react-ui/build/static/js/*.js
+   heroku config:set JS_RUNTIME_TARGET_BUNDLE='/app/react-ui/build/static/js/*.js'
    ```
 3. Now, build the app with this new setup:
 
