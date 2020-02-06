@@ -38,7 +38,7 @@ function App() {
               Sweet dreams are made of cheese.
             </p>
           : <p>
-              Who am I to <code>diss a brie</code>.
+              Who am I to <code>diss a brie</code>?
             </p>
         }
         <p>{'« '}<strong>
