@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { RegisterForm } from './components/registerForm'
 import logo from './logo.svg';
 import './App.css';
+import Map from './Map'
 
 function App() {
 	const [message, setMessage] = useState(null);
@@ -63,6 +64,7 @@ function App() {
 					Learn React
         </a></p>
 			</header>
+			<Map />
 		</div>
 	);
 
