@@ -35,7 +35,6 @@ function App() {
 		<div className="App">
 			<RegisterForm />
 			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
 				{process.env.NODE_ENV === 'production' ?
 					<p>
 						This is a production build from create-react-app.
