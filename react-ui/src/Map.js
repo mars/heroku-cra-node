@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL from 'react-map-gl'
+import MapPin from './MapPin'
 
 const mapStyle = {
   version: 8,
@@ -52,7 +53,9 @@ export default function Map() {
         {...viewport}
         onViewportChange={setViewport}
         mapStyle={mapStyle}
-      />
+      >
+        <MapPin latitude={viewport.latitude} longitude={viewport.longitude} />
+      </ReactMapGL>
       <div>
         Koordinaat: lat={viewport.latitude}, lng={viewport.longitude}
       </div>
