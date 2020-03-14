@@ -32,7 +32,7 @@ if (!isDev && cluster.isMaster) {
 	});
 
 	app.post('/api/register', function (req, res) {
-		console.log(req.body)
+		console.log(req)
 		res.send("okei")
 	});
 

@@ -1,53 +1,93 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { useForm } from 'react-hook-form';
 
-export class RegisterForm extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			phone: '',
-			need: '',
-			location: ''
-		};
+export function RegisterForm() {
+	const { register, errors, handleSubmit, watch } = useForm();
+	const onSubmit = data => {
 
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	handleChange = e => {
-		const { name, value } = e.target;
-		this.setState({
-			[name]: value
-		});
+		alert(JSON.stringify(data));
 	};
+	const isHelpProvider = watch('helpProvider', false);
 
-	async handleSubmit(event) {
-		event.preventDefault();
-		const response = await axios.post(
-			'/api/register',
-			{ body: event.state },
-			{ headers: { 'Content-Type': 'application/json' } }
-		)
-		console.log(response);
-	}
+	return (
+		<div className="RegisterForm">
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<label htmlFor="role">Olen abi pakkuja</label>
+				<input type="checkbox" name="helpProvider" ref={register} />
+					<br />
+				<label htmlFor="phoneNumber">Telefoni number</label>
+				<input
+					type="number"
+					name="phoneNumber"
+					placeholder="55331312"
+					ref={register({
+						required: 'Palun sisestage telefoni number',
+						minLength: {
+							minValue: 5,
+							message: 'Miinimum pikkus on 5',
+						},
+					})}
+				/>
+				<br />
+					{errors.phoneNumber && errors.phoneNumber.message}
+				<br />
+				{!isHelpProvider && (
+					<div>
+					<label htmlFor="need">Abivajaduse kirjeldus</label>
+					<textarea
+						name="need"
+						placeholder="Olen Tartus karantiinis ja ei saa liikuda. 
+							Mul on vaja, et keegi Kohilas mu koertele süüa viiks."
+						ref={register({
+							required: 'Abivajaduse kirjeldus on nõutud',
+							minLength: {
+								value: 25,
+								message: 'Sisestage vähemalt 25 tähemärki.',
+							},
+						})}
+					/>
+				<br />
+					{errors.need && errors.need.message}
+				<br />
 
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>
-					Telefoni number:
-          			<input type="text" name="phone" value={this.state.phone} onChange={this.handleChange} />
-				</label>
-				<label>
-					Abivajadus:
-          			<input type="textarea" name="need" value={this.state.need} onChange={this.handleChange} />
-				</label>
-				<label>
-					Minu asukoht:
-          			<input type="textarea" name="location" value={this.state.location} onChange={this.handleChange} />
-				</label>
-				<input type="submit" value="Saada" />
+					</div>
+
+				)}
+				
+				<label htmlFor="location">Minu asukoht</label>
+				<input
+					name="location"
+					placeholder="Hageri, Kohila vald"
+					type="text"
+					ref={register({
+						required: 'Palun sisestage asukoht',
+						minLength: {
+							value: 5,
+							message: 'Asukoht peaks olema vähemalt 5 tähemärki.',
+						},
+					})}
+				/>
+				<br />
+					{errors.location && errors.location.message}
+				<br />
+
+				{isHelpProvider && (
+					<div>
+					<label htmlFor="helpGivingRadius">Abistamise raadius</label>
+					<select name="helpGivingRadius" ref={register}>
+						<option value="2">2</option>
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="all">Üle Eesti</option>
+					</select>
+					<br />
+					</div>)}
+				
+			
+				<button type="submit">Saada</button>
 			</form>
-		);
-	}
+		</div>
+	);
 }
