@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { RegisterForm } from './components/registerForm'
-import logo from './logo.svg';
 import './App.css';
 import Map from './Map'
 

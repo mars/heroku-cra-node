@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { useForm } from 'react-hook-form';
+import './styles.css';
 
 export function RegisterForm() {
 	const { register, errors, handleSubmit, watch } = useForm();
@@ -35,7 +35,7 @@ export function RegisterForm() {
 				{!isHelpProvider && (
 					<div>
 					<label htmlFor="need">Abivajaduse kirjeldus</label>
-					<textarea
+						<textarea rows="4" cols="50"
 						name="need"
 						placeholder="Olen Tartus karantiinis ja ei saa liikuda. 
 							Mul on vaja, et keegi Kohilas mu koertele süüa viiks."
@@ -86,7 +86,7 @@ export function RegisterForm() {
 					</div>)}
 				
 			
-				<button type="submit">Saada</button>
+				<button type="submit">Salvesta</button>
 			</form>
 		</div>
 	);
