@@ -6,6 +6,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hook-form": "^5.0.3",
+    "react-map-gl": "^5.2.3",
     "react-scripts": "^2.1.8"
   },
   "scripts": {
