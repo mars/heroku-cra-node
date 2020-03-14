@@ -4,9 +4,17 @@ import './styles.css';
 
 export function RegisterForm() {
 	const { register, errors, handleSubmit, watch } = useForm();
-	const onSubmit = data => {
+	const onSubmit = async data => {
+		const response = await fetch('/api/register', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		});
 
-		alert(JSON.stringify(data));
+		console.log(response)
 	};
 	const isHelpProvider = watch('helpProvider', false);
 
@@ -47,15 +55,13 @@ export function RegisterForm() {
 							},
 						})}
 					/>
-				<br />
-					{errors.need && errors.need.message}
-				<br />
-
+					<br />
+						{errors.need && errors.need.message}
+					<br />
 					</div>
-
 				)}
 				
-				<label htmlFor="location">Minu asukoht</label>
+				<label htmlFor="location">Asukoht</label>
 				<input
 					name="location"
 					placeholder="Hageri, Kohila vald"
@@ -68,9 +74,9 @@ export function RegisterForm() {
 						},
 					})}
 				/>
-				<br />
-					{errors.location && errors.location.message}
-				<br />
+					<br />
+						{errors.location && errors.location.message}
+					<br />
 
 				{isHelpProvider && (
 					<div>
