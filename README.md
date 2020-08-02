@@ -1,4 +1,23 @@
-# create-react-app with a Node server on Heroku
+# Food Feels
+
+## Are you missing indoor dining as much as I am?
+
+In the wake of Covid-19, delivery and takeout food orders have replaced indoor dining in many parts of the US. A major component as to why a customer chooses a particular restaurant is the <i> experience </i>, where the actual meal may only play a minor role. Popular delivery and takeout apps are missing a crucial component to the dining experience, which is the atmosphere while you are eating.
+
+This project is a POC to help recreate (as much as possible) the vibe at some of your favorite restaurants while we wait for indoor dining to return. With data such as how to set your table, lighting, music, etc. you can get closer than ever before. If nothing else, it serves as an idea for date-night or a family meal.
+
+There are two ways we can begin aggregating restaurant data:
+
+1. Web-scraping positive online reviews
+2. Allowing the restaurant to submit a form so customers can recreate the experience at home
+
+To start, a "hello world" React app and Node server have been configured. Project is hosted with Heroku.
+
+## Contact
+
+If you would like to contribute to the project, please reach out to me at benfromtech@gmail.com
+
+## create-react-app with a Node server on Heroku
 
 A minimal example of using a Node backend (server for API, proxy, & routing) with a [React frontend](https://github.com/facebookincubator/create-react-app).
 
@@ -11,7 +30,6 @@ A minimal example of using a Node backend (server for API, proxy, & routing) wit
 
 To deploy a frontend-only React app, use the static-site optimized  
 ▶️ [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack)
-
 
 ## Design Points
 
@@ -29,7 +47,6 @@ Includes a minimal [Node Cluster](https://nodejs.org/docs/latest-v8.x/api/cluste
 ## Demo
 
 [Demo deployment](https://cra-node.herokuapp.com/): example API call from the React UI is [fetched with a relative URL](react-ui/src/App.js#L16) that is served by an Express handler in the Node server.
-
 
 ## Deploy to Heroku
 
