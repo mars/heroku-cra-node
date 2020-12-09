@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     setIsFetching(true);
     fetchData();
-  
+  console.log("Otra vez")
   }, [fetchData]);
 
   return (
