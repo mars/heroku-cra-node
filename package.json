@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "How to use create-react-app with a custom Node API on Heroku",
   "engines": {
-    "node": "10.x"
+    "node": ">10.x"
   },
   "scripts": {
     "start": "node server",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mars/heroku-cra-node.git"
+    "url": "https://thor25.github.com/mars/heroku-cra-node.git"
   },
   "keywords": [
     "node",
