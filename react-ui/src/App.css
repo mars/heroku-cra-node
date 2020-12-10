@@ -7,8 +7,8 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
+.App-body {
+  background-color: #184fbd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

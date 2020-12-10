@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
-import  'Header.css'
+import "./Header.css"
 
-export default function Header () {
-return ('Estamos en Header')
-
+export default function Header()
+{
+    return ("Esto es header")
 }

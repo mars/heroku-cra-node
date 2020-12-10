@@ -1,6 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import logo from './logo.svg';
+import {Container, Snackbar} from '@material-ui/core'
+import Header from "./components/Header"
+
+
 import './App.css';
+
 
 function App() {
   const [message, setMessage] = useState(null);
@@ -30,9 +35,11 @@ function App() {
   }, [fetchData]);
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <Container className="App" maxWidth={false}>
     
+      <Header >
+      </Header> 
+      <div className="App-body">
         { process.env.NODE_ENV === 'production' ?
             <p>
               This is a production build from create-react-app.
@@ -47,8 +54,9 @@ function App() {
             : message}
         </strong>{' »'}</p>
        
-      </header>
-    </div>
+      </div>
+   
+    </Container>
   );
 
 }
