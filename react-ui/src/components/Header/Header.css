@@ -1,3 +1,18 @@
 .header {
-    background-color:  cyan
+    background-color: rgb(255, 238, 0);
+    left : 0;
+    top : 0;
+    width: 100%;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:1;
+
+
+
+}
+h1{
+    color:rgb(131, 16, 16)
+
 }

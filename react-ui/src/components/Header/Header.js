@@ -4,5 +4,9 @@ import "./Header.css"
 
 export default function Header()
 {
-    return ("Esto es header")
+    return (
+   <div className="header">
+       <h1>Tussam react</h1>
+   </div>
+    );
 }
