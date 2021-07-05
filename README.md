@@ -15,7 +15,7 @@ To deploy a frontend-only React app, use the static-site optimized
 
 ## Design Points
 
-A combo of two npm projects, the backend server and the frontend UI. So there are two `package.json` configs and thereforce [two places to run `npm` commands](#user-content-local-development):
+A combo of two npm projects, the backend server and the frontend UI. So there are two `package.json` configs and therefore [two places to run `npm` commands](#user-content-local-development):
 
   1. [**Node server**](server/): [`./package.json`](package.json)
       * [deployed automatically](https://devcenter.heroku.com/categories/deployment) via heroku/nodejs buildpack
