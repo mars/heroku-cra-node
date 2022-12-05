@@ -13,13 +13,16 @@ To deploy a frontend-only React app, use the static-site optimized
 ▶️ [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack)
 
 
-## Free Disclaimer 
+##  ⚠️ Free Disclaimer 
 
-As of Nov 28, 2022 Heroku ended its free tier plan. 
+As of Nov 28, 2022 Heroku ended its free tier plan. From the Heroku website:
 
 ```
-Free Heroku Postgres, free Heroku Data for Redis®, and free Heroku Dynos are no longer available.
-If you have apps using these resources, you must upgrade to our new low-cost or other paid plans to ensure your apps continue to run and retain your data. To recover your data, contact Heroku Support as soon as possible. Eligible students can apply for platform credits through our Heroku for GitHub Students program. 
+"Free Heroku Postgres, free Heroku Data for Redis®, and free Heroku Dynos are no longer available.
+If you have apps using these resources, you must upgrade to our new low-cost or other paid plans
+to ensure your apps continue to run and retain your data. To recover your data, contact 
+Heroku Support as soon as possible. Eligible students can apply for platform credits through our 
+Heroku for GitHub Students program."
 ```
 
 [This article by Dick Tang](https://medium.com/dictcp/top-6-heroku-alternative-drop-in-replacement-in-2022-ff456fe050e4) illustartes some alternatives to you may try. 
